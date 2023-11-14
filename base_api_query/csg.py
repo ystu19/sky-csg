@@ -19,8 +19,8 @@ try:
     sg_url = response.json()['url']
     # print(sg_url)
     response = requests.get(sg_url)
-    with open(f'身高.jpg', 'wb') as file:
+    with open(f'1.jpg', 'wb') as file:
         file.write(response.content)
-    print(f'图像已保存为身高.jpg')
+    print(f'图像已保存为1.jpg')
 except Exception as e:
     print(f"Error：出现了一些问题，大概率是因为id不正确")

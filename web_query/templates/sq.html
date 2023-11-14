@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询成功</title>
+</head>
+<body>
+<form action="http://localhost:5000/result" method="post">
+    <p>长id：<input type="text" name="cid" style="width: 300px;">&nbsp;<input type="submit" value="query"></p>
+
+</form>
+<p>结果：<img src={{ img_src }} alt="Description of the image" width="360">
+<!--    <img src="{{ url_for('static', filename='1.jpg') }}" alt="Description of the image">-->
+</p>
+</body>
+</html>
