@@ -5,12 +5,30 @@
     <title>查询成功</title>
 </head>
 <body>
-<form action="http://localhost:5000/result" method="post">
-    <p>长id：<input type="text" name="cid" style="width: 300px;">&nbsp;<input type="submit" value="query"></p>
+<div style="width:450px;">
+    <form action="http://127.0.0.1:5000/result" method="post" style="width:100%;margin-bottom:15px">
 
-</form>
-<p>结果：<img src={{ img_src }} alt="Description of the image" width="360">
-<!--    <img src="{{ url_for('static', filename='1.jpg') }}" alt="Description of the image">-->
-</p>
+        <label style="display: inline-block; width: 11%;">长id：</label>
+        <input type="text" name="cid" style="width: 74%;">&nbsp;
+        <input type="submit" value="查询" style="width: 10%;">
+    </form>
+    <div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+        <table style="border-collapse: collapse; width: 100%; margin: -1px ; font-family: 'Arial', sans-serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+            {% for i, j in result.items() %}
+            <tr>
+                <th style="width:20%;border: 1px solid #ddd; background-color: #f2f2f2; padding: 10px; text-align: left; font-size: 15px;">
+                    {{ i }}
+                </th>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 15px;">{{ j }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:100%;">
+        <p><img src={{ img_src }} alt="Description of the image" style="border-radius:10px;width:100%;">
+<!--<img src="{{ url_for('static', filename='sg.jpg') }}" alt="Description of the image" style="border-radius:10px;width:100%;">-->
+        </p>
+    </div>
+</div>
 </body>
 </html>

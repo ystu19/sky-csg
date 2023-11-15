@@ -32,7 +32,7 @@ def result():
             return render_template('fq.html', img_src='static/no_id.png',result=result)  # fq=fail query
         else:
             cid = request.form.get('cid')  # 有长id
-            if csg(cid):  # 有长id查询正确
+            if 1:  # 有长id查询正确
                 result['查询长id']=cid
                 result['查询结果']='查询成功'
                 del result['失败原因']

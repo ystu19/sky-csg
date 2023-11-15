@@ -1,6 +1,5 @@
 from api_key import key
 import requests
-
 def csg(cid):
     url = 'https://api.t1qq.com/api/sky/sc/sczb'
     params = {

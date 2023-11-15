@@ -1,3 +1,4 @@
 # .gitignore
 api_key.py
-web_query/static/1.jpg
+web_query/static/11.jpg
+test.py
