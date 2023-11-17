@@ -1,0 +1,91 @@
+/* 默认样式 */
+.container{
+    width: 450px;
+  }
+  .form1{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .cid-text{
+    display: inline-block;
+    width: 11%;
+  }
+  .cid-input{
+    width: 73%;
+  }
+  .cid-submit{
+    width: 10%;
+    float: right;
+  }
+  .result-container{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .result-form{
+    border-collapse: collapse;
+    width: 100%;
+    margin: -1px;
+    font-family: 'Arial',sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .result-form-th{
+    width: 20%;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+  }
+  .result-form-td{
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+  }
+  .img-box{
+    width: 100%;
+  }
+  img{
+    border-radius:10px;
+    width:100%;
+  }
+
+
+/* 当屏幕宽度小于等于 600 像素时应用这些样式 */
+    @media (max-width: 600px) {
+    body {
+    margin: 0 auto; /* 设置左右外边距为auto，将内容居中 */
+    max-width: 100%; /* 最大宽度为屏幕宽度 */
+    padding: 10px;
+    }
+    .container{
+    width: 100%;
+    .form1{
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 50px;
+    }
+    }
+    .cid-text{
+      display: inline-block;
+      width: 12%;
+    }
+    .cid-input{
+      width: 69%;
+    }
+    .cid-submit{
+      width: 13%;
+      float: right;
+    }
+    .result-form-th{
+      width: 22%;
+      border: 1px solid #ddd;
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: left;
+      font-size: 15px;
+    }
+  }
