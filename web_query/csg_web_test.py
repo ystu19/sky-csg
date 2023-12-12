@@ -29,21 +29,28 @@ def result():
     if request.method == 'POST':
         if not request.form.get('cid'):  # 没有长id
             del result['查询长id']
-            return render_template('fq.html', img_src='static/no_id.png',result=result)  # fq=fail query
+            return render_template('result.html', img_src='static/no_id.png',result=result)  # fq=fail query
+            # result['查询长id'] = 'cid'
+            # result['查询结果'] = '查询成功'
+            # del result['失败原因']
+            # # del result['img']
+            # # result['img']='先写着查询成功吧'
+            # return render_template('result.html', img_src='static/sg.jpg', result=result)
+
         else:
             cid = request.form.get('cid')  # 有长id
-            if 1:  # 有长id查询正确
+            if csg(cid):  # 有长id查询正确
                 result['查询长id']=cid
                 result['查询结果']='查询成功'
                 del result['失败原因']
                 # del result['img']
                 # result['img']='先写着查询成功吧'
-                return render_template('sq.html', img_src='static/sg.jpg', result=result)
+                return render_template('result.html', img_src='static/sg.jpg', result=result)
             else:  # 有长id查询失败
                 result['失败原因']='大概是长id不对'
                 result['查询长id']=cid+'（这是不对的长id哦）'
                 # result['img']='以后放一张查询失败提示重新输入的图片'
-                return render_template('fq.html', img_src='static/error_id.png',result=result)  # fq=fail query
+                return render_template('result.html', img_src='static/error_id.png',result=result)  # fq=fail query
 
 
 if __name__ == '__main__':

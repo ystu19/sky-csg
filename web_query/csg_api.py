@@ -1,5 +1,5 @@
 from api_key import key
-import requests
+import requests,os
 def csg(cid):
     url = 'https://api.t1qq.com/api/sky/sc/sczb'
     params = {
@@ -13,7 +13,9 @@ def csg(cid):
     try:
         sg_url = response.json()['url']
         response = requests.get(sg_url)
-        with open(f'static/sg.jpg', 'wb') as file:
+        script_folder = os.path.dirname(os.path.abspath(__file__))
+        relative_path = os.path.join(script_folder, 'static', 'sg.jpg')
+        with open(relative_path, 'wb') as file:
             file.write(response.content)
         print(f'图像已保存为“sg.jpg”')
         return 1
