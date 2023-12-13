@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <title>查身高了</title>
+</head>
+<body>
+
+<div class="container">
+    <form action="http://127.0.0.1:5000/result" method="post" class="form1">
+        <label class="cid-text">长id：</label>
+        <input id="myInput" type="text" name="cid" class="cid-input">
+        <input type="submit" value="查询" class="cid-submit">
+    </form>
+    <div class="img-box">
+                <img src="{{ url_for('static', filename='csg.png') }}" alt="Description of the image">
+        </p>
+    </div>
+</div>
+</body>
+</html>

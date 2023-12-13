@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <title>查询成功</title>
+
+</head>
+<body>
+
+<div class="container">
+    <form action="http://127.0.0.1:5000/result" method="post" class="form1">
+        <label class="cid-text">长id：</label>
+        <input type="text" name="cid" class="cid-input">
+        <input type="submit" value="查询" class="cid-submit">
+    </form>
+    <div class="result-container">
+        <table class="result-form">
+            {% for th, td in result.items() %}
+            <tr>
+                <th class="result-form-th">
+                    {{ th }}
+                </th>
+                <td class="result-form-td"><pre class="result-form-td-pre">{{ td }}</pre></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="img-box">
+        <p><img src={{ img_src }} alt="有一张图片丢了"></p>
+    </div>
+    <div id="copy-button-div">
+    <button id="copy-button">复制结果</button>
+</div>
+</div>
+
+
+<div id="copied-message" style="display: none;">复制成功</div>
+<script>
+document.getElementById('copy-button').addEventListener('click', function() {
+    // 获取第二个 <td> 元素
+    var targetCell = document.getElementsByClassName('result-form-td-pre')[2];
+
+    // 复制 <td> 元素的内容到剪贴板
+    var textArea = document.createElement('textarea');
+    textArea.value = targetCell.innerText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+
+    // 显示已复制的消息
+    document.getElementById('copied-message').style.display = 'block';
+
+    // 等待一段时间后自动消失
+    setTimeout(function() {
+        document.getElementById('copied-message').style.display = 'none';
+    }, 1500); // 3秒后消失
+});
+</script>
+</body>
+</html>

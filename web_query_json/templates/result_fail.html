@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <title>{{ result['查询结果'] }}</title>
+
+</head>
+<body>
+
+<div class="container">
+    <form action="http://127.0.0.1:5000/result" method="post" class="form1">
+        <label class="cid-text">长id：</label>
+        <input type="text" name="cid" class="cid-input">
+        <input type="submit" value="查询" class="cid-submit">
+    </form>
+    <div class="result-container">
+        <table class="result-form">
+            {% for th, td in result.items() %}
+            <tr>
+                <th class="result-form-th">
+                    {{ th }}
+                </th>
+                <td class="result-form-td"><pre class="result-form-td-pre">{{ td }}</pre></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="img-box">
+        <p><img src={{ img_src }} alt="有一张图片丢了"></p>
+    </div>
+</div>
+</body>
+</html>
