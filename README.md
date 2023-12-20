@@ -15,3 +15,25 @@
 
 
 后续的更新方向可能是加入数据库，把查询过的id记录下来
+
+
+
+使用docker部署
+构建镜像：
+docker build -t json_query2 .
+运行：
+docker run -d -v /opt:/opt -p80:8888 --name jaa json_query
+dockerfile:
+
+```Dockerfile
+FROM alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN apk update && apk add python3 py3-pip tzdata  \ 
+    && cp -r -f /usr/share/zoneinfo/Hongkong /etc/localtime     \
+    && apk del tzdata
+RUN apk update && apk add python3 py3-pip
+RUN pip3 install flask requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+WORKDIR /opt
+EXPOSE 8888
+CMD ["python3", "json_web_query/csg_web.py"]
+```
